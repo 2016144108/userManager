@@ -72,6 +72,9 @@
                 required: false,
             }
         },
+        created(){
+            console.log(this.user);
+        },
         methods: {
             async inforUser(){
                 let newUser = this.user;
@@ -79,7 +82,7 @@
                 if(this.label === '添加用户'){
                     const resp = await insertUser(newUser);
                     console.log(resp);
-                    if(resp.code === 201){
+                    if(resp.code === 200){
                         alert("添加成功");
                         this.$router.push({name:'info', query: {msg:'新用户添加成功'}});
                     }else{
@@ -89,7 +92,7 @@
                 }else{
                     const resp = await updateUser(newUser);
                     console.log(resp);
-                    if(resp.status === 200){
+                    if(resp.code === 200){
                         alert("编辑成功");
                         this.$router.push({name:'info', query: {msg:'用户信息编辑成功'}});
                     }else{

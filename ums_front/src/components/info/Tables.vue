@@ -66,7 +66,10 @@
                 this.$router.push({name:'detail', query:{id:id}});
             },
             async deleteUser(id){
-                const resp = await deleteUser(id);
+                let user={
+                    id,
+                }
+                const resp = await deleteUser(user);
                 console.log(resp);
                 if(resp.code === 200){
                     alert("删除成功");

@@ -24,7 +24,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("selectAllUser")
+    @RequestMapping(value = "selectAllUser")
     @ResponseBody
     public JSONObject selectAllUser() {
         Result result=new Result();
@@ -39,7 +39,6 @@ public class UserController {
             result.setData(e);
         }finally {
             JSONObject json=JSONObject.fromObject(result);
-            System.out.println(json);
             return json;
         }
     }
@@ -59,7 +58,6 @@ public class UserController {
             result.setData(e);
         }finally {
             JSONObject json=JSONObject.fromObject(result);
-            System.out.println(json);
             return json;
         }
     }

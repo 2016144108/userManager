@@ -14,7 +14,7 @@ public interface UserMapper {
     @Select("select * from user where id=#{id}")
     public User selectTheUser(int id);
 
-    @Insert("insert into user (name,phone,email,education,school,job,intro) values (#{name},#{phone},#{email},#{education},#{school},#{job},#{intro} ")
+    @Insert("insert into user (name,phone,email,education,school,job,intro) values (#{name},#{phone},#{email},#{education},#{school},#{job},#{intro}) ")
     public void insertUser(User user);
 
     @Delete("delete from user where id=#{id}")

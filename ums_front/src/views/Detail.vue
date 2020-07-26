@@ -13,6 +13,7 @@
         data(){
             return{
                 user: {
+                    id:'',
                     name: '',
                     phone: '',
                     email: '',
@@ -34,7 +35,10 @@
         },
         methods: {
             async edit(id){
-                const resp = await selectTheUser(id);
+                let user = {
+                    id,
+                };
+                const resp = await selectTheUser(user);
                 console.log(resp);
                 return resp.data;
             },
