@@ -43,7 +43,7 @@
 
 <script>
     import '../../static/layui/layui'
-    import Alert from '../../components/Alert'
+    import {selectUser,deleteUser} from "../../api/userApi";
 
     export default {
         name: "Tables",
@@ -58,24 +58,24 @@
             };
         },
         methods: {
-            /*async allUser(){
-                const resp = await this.$http.get("http://localhost:3000/users");
-                return resp.body;
-            },*/
+            async allUser(){
+                const resp = await selectUser();
+                return resp.data;
+            },
             async edit(id){
                 this.$router.push({name:'detail', query:{id:id}});
             },
-            /*async deleteUser(id){
-                const resp = await this.$http.delete("http://localhost:3000/users/"+id);
+            async deleteUser(id){
+                const resp = await deleteUser(id);
                 console.log(resp);
-                if(resp.status === 200){
+                if(resp.code === 200){
                     alert("删除成功");
                     this.$router.push({name:'info', query: {msg:'用户信息删除成功'}});
                 }else{
                     alert("删除失败");
                     this.$router.push({name:'info', query: {msg:'用户信息删除失败'}});
                 }
-            },*/
+            },
             filterUser(Users, inputValue){
                 return Users.filter(user => user.name.match(inputValue))
             }

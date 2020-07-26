@@ -56,6 +56,7 @@
 
 <script>
     import '../static/layui/layui'
+    import { insertUser,updateUser } from "../api/userApi";
 
     export default {
         name: "InforTable",
@@ -72,13 +73,13 @@
             }
         },
         methods: {
-            /*async inforUser(){
+            async inforUser(){
                 let newUser = this.user;
                 console.log(this.user);
                 if(this.label === '添加用户'){
-                    const resp = await this.$http.post("http://localhost:3000/users", newUser);
+                    const resp = await insertUser(newUser);
                     console.log(resp);
-                    if(resp.status === 201){
+                    if(resp.code === 201){
                         alert("添加成功");
                         this.$router.push({name:'info', query: {msg:'新用户添加成功'}});
                     }else{
@@ -86,7 +87,7 @@
                         this.$router.push({name:'info', query: {msg:'新用户添加失败'}});
                     }
                 }else{
-                    const resp = await this.$http.patch('http://localhost:3000/users/'+this.user.id,newUser);
+                    const resp = await updateUser(newUser);
                     console.log(resp);
                     if(resp.status === 200){
                         alert("编辑成功");
@@ -96,7 +97,7 @@
                         this.$router.push({name:'info', query: {msg:'用户信息编辑失败'}});
                     }
                 }
-            },*/
+            },
         },
     }
 </script>

@@ -6,6 +6,7 @@
 
 <script>
     import InforTable from '../components/InforTable'
+    import {selectTheUser} from '../api/userApi'
 
     export default {
         name: "Detail",
@@ -32,11 +33,11 @@
             console.log(this.user);
         },
         methods: {
-            /*async edit(id){
-                const resp = await this.$http.get('http://localhost:3000/users/'+id);
-                console.log(resp.body);
-                return resp.body;
-            },*/
+            async edit(id){
+                const resp = await selectTheUser(id);
+                console.log(resp);
+                return resp.data;
+            },
         }
     }
 </script>
